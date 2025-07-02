@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// WAP to find the largest element in the array using Pointer.
+
+int main() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int *p = malloc(n * sizeof *p);
+    if (!p) { return 1; }
+
+    for (int i = 0; i < n; i++)
+        scanf("%d", p + i);
+
+    int max = *p;  // let's say first number is max
+    for (int i = 1; i < n; i++) {
+        if (*(p + i) > max) {
+            max = *(p + i);
+        }
+    }
+
+    printf("Largest element = %d\n", max);
+    free(p);
+    return 0;
+}
