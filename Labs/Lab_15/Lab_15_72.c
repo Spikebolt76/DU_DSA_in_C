@@ -74,15 +74,43 @@ void insertAtTail (DoublyLinkedList* list, int val) {
     list->size++;
 }
 
-void deleteAtHead (DoublyLinkedList* list) {
-    
+bool delete_head (DoublyLinkedList* list) {
+    if (is_empty(list)) {
+        fprintf(stderr, "List is empty: Cannot delete head\n");
+        return false;
+    }
+    Node* temp = list->head;
+    list->head = list->head->next;
+
+    if (list->head)
+        list->head->prev = NULL;
+    else   
+        list->tail = NULL;
+
+    free(temp);
+    list->size--;
+    return true;
 }
 
-void deleteAtTail (DoublyLinkedList* list) {
-    
+bool delete_tail (DoublyLinkedList* list) {
+    if (is_empty(list)) {
+        fprintf(stderr, "List is empty: Cannot delete head\n");
+        return false;
+    }
+    Node* temp = list->tail;
+    list->tail = list->tail->prev;
+
+    if (list->tail) 
+        list->tail->next = NULL;
+    else 
+        list->head = NULL;
+        
+    free(temp);
+    list->size--;
+    return true;
 }
 
-void delete_at (DoublyLinkedList* list, int index) {
+bool delete_at (DoublyLinkedList* list, int index) {
     if (is_empty(list)) {
         fprintf(stderr, "List is empty: Cannot delete at position\n");
         return false;
@@ -100,12 +128,14 @@ void delete_at (DoublyLinkedList* list, int index) {
     }
 
     Node* curr = list->head;
-
-    for (size_t i = 0; i < list->size; i++) {
-        if () {
-
-        }
+    for (size_t i = 0; i < index; i++) {
+        curr = curr->next;
     }
+    curr->prev->next = curr->next;
+    curr->next->prev = curr->prev;
+    free(curr);
+    list->size--;
+    return true;
 }
 
 void print_list_forward(const DoublyLinkedList* list) {
