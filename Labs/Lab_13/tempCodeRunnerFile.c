@@ -1,0 +1,1 @@
+if (list->head && list->head->next) return;
