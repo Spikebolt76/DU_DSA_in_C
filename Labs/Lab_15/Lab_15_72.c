@@ -172,6 +172,18 @@ int main () {
 
     printf("%d %d", EXIT_FAILURE, EXIT_SUCCESS);
 
+    DoublyLinkedList* list1;
+    list1 = init_DoublyList();
+
+    insertAtTail(list1, 23);    
+    insertAtTail(list1, 45);    
+    insertAtTail(list1, 27);    
+    insertAtTail(list1, 0);    
+    insertAtTail(list1, 93);    
+    insertAtTail(list1, 12);    
+
+    print_list_forward(list1);
+    print_list_backward(list1);
 
     return 0;
 }
