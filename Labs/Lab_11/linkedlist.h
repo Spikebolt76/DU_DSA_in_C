@@ -13,6 +13,8 @@ typedef struct {
     Node* head;
 } LinkedList;
 
+void insertAtPosition(LinkedList* list, int value, int position);
+
 /// @brief Initializes an empty linked list.
 /// @param list Pointer to the LinkedList to initialize.
 void initList(LinkedList* list) {
