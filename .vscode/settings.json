@@ -58,6 +58,7 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "C_Cpp.errorSquiggles": "enabled",
   "files.associations": {
-    "linkedlist.h": "c"
+    "linkedlist.h": "c",
+    "stack_using_array.h": "c"
   }
 }
